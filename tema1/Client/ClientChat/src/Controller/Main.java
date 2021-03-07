@@ -11,8 +11,8 @@ public class Main {
 
 	private static Scanner scn;
 
-	private static DataInputStream input;
 	private static DataOutputStream output;
+	private static DataInputStream input;
 	private static Socket socket;
 
 
@@ -20,24 +20,26 @@ public class Main {
 		scn = new Scanner(System.in);
 		System.out.print("Enter your name: ");
 		String userName = scn.nextLine();
+		System.out.print("Enter your height(cm): ");
+		String height = scn.nextLine();
+		System.out.print("Enter your weight(kg): ");
+		String weight = scn.nextLine();
 
 		try {
 			socket = new Socket("fenrir.info.uaic.ro", 7711);
-			input = new DataInputStream(socket.getInputStream());
 			output = new DataOutputStream(socket.getOutputStream());
-			String msgReceived;
+			input = new DataInputStream(socket.getInputStream());
+
 			while (true) {
 				String msg = scn.nextLine();
 				if (!msg.equals("exit")) {
-					output.writeUTF(userName + ":" + msg);
+					output.writeUTF(userName + ":" + height + "," + weight);
+					System.out.println(input.readUTF());
 				} else {
 					output.writeUTF("Exit");
 					System.out.println("Disconnected from the server");
 					break;
 				}
-
-				msgReceived = input.readUTF();
-				System.out.println("Server: \""+msgReceived+"\"");
 			}
 		} catch (UnknownHostException e) {
 			e.printStackTrace();

@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.text.DecimalFormat;
 
 public class ClientHandler implements Runnable {
 
@@ -35,8 +36,15 @@ public class ClientHandler implements Runnable {
 					this.client.close();
 					break;
 				}
+				String weight = msgReceived.substring(msgReceived.lastIndexOf(",") + 1);
+				String heightWeight = msgReceived.substring(msgReceived.lastIndexOf(":") + 1);
+				String height = heightWeight.substring(0, heightWeight.indexOf(","));
+				double BMI = Double.parseDouble(weight) / (Double.parseDouble(height) * Double.parseDouble(height))
+						* 10000;
+				BMI = Double.parseDouble(new DecimalFormat("##.#").format(BMI));
 				System.out.println(msgReceived);
-				output.writeUTF("Message received by the server: "+ msgReceived);
+				String username = msgReceived.substring(0, msgReceived.indexOf(":"));
+				output.writeUTF(username + ", " + "your BMI is: " + BMI);
 
 			} catch (IOException e) {
 				break;
@@ -50,7 +58,4 @@ public class ClientHandler implements Runnable {
 		}
 	}
 
-
-
-	
 }

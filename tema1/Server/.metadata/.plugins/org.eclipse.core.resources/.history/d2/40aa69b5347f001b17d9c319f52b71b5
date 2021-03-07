@@ -1,0 +1,61 @@
+package Controller;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+
+public class ClientHandler implements Runnable {
+
+	private DataInputStream input;
+	private DataOutputStream output;
+
+	private Socket client;
+
+	public ClientHandler(Socket client) {
+		this.client = client;
+	}
+
+	@Override
+	public void run() {
+
+		try {
+			input = new DataInputStream(client.getInputStream());
+			output = new DataOutputStream(client.getOutputStream());
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+		String msgReceived;
+		while (true) {
+			try {
+				msgReceived = input.readUTF();
+				if (msgReceived.equals("Exit")) {
+					System.out.println("Client closed");
+					this.client.close();
+					break;
+				}
+				String heightWeight = msgReceived.substring(msgReceived.lastIndexOf(":") + 1);
+				String height = heightWeight.substring(0, heightWeight.indexOf(","));
+				String weight = msgReceived.substring(msgReceived.lastIndexOf(",") + 1);
+				double BMI = Double.parseDouble(weight)/ (Double.parseDouble(height) * Double.parseDouble(height)) * 10000;
+				BMI = Math.ceil(BMI/100);
+				System.out.println(msgReceived + height + weight + " " + BMI);
+				output.writeUTF("Message received by the server: "+ msgReceived);
+
+			} catch (IOException e) {
+				break;
+			}
+		}
+
+		try {
+			this.input.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+
+	
+}

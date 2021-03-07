@@ -138,7 +138,7 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2021-03-02 18:30:33.104 -----------------------------------------------
+!SESSION 2021-03-07 12:28:09.420 -----------------------------------------------
 eclipse.buildId=4.18.0.I20201202-1800
 java.version=11.0.9
 java.vendor=Oracle Corporation
@@ -146,18 +146,15 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
 Framework arguments:  -product org.eclipse.epp.package.java.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
 
-!ENTRY org.eclipse.core.resources 2 10035 2021-03-02 18:33:34.803
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
-
-!ENTRY org.eclipse.jface 2 0 2021-03-02 18:33:36.693
+!ENTRY org.eclipse.jface 2 0 2021-03-07 12:28:25.728
 !MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
-!SUBENTRY 1 org.eclipse.jface 2 0 2021-03-02 18:33:36.693
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-03-07 12:28:25.728
 !MESSAGE A conflict occurred for CTRL+SHIFT+T:
 Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
 		Open a type in a Java editor,
 		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@27746c5e,
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@51fb5fe6,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
@@ -165,12 +162,12 @@ Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
 		,
 		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@543ac221,
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5ca4c88a,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 
-!ENTRY org.eclipse.egit.ui 2 0 2021-03-02 18:33:42.076
+!ENTRY org.eclipse.egit.ui 2 0 2021-03-07 12:28:30.208
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'N:\'. If this is
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
