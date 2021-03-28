@@ -1,0 +1,25 @@
+insert into tripDB.user(iduser, user_name, password, name, email)
+values (1, 'irina', 'iri', 'Irina', 'irina@gmail.com');
+
+insert into tripDB.user(iduser, user_name, password, name, email)
+values(103, 'irina123', 'iri', 'Irina', 'jsjdjs@gf.com');
+
+insert into tripDB.user(iduser, user_name, password, name, email)
+values(107, 'Simba', 'Restaurant123', 'simba', 'simba@gmail.com');
+
+
+insert into tripDB.trip (idtrip, tripName, destination, startDate, endDate, startingPoint)
+values (1, "Trip Madrid", "Madrid", STR_TO_DATE('1-01-2021', '%d-%m-%Y'), STR_TO_DATE('1-02-2021', '%d-%m-%Y'), "Bucharest");
+
+insert into tripDB.trip (idtrip, tripName, destination, startDate, endDate, startingPoint)
+values (2, "Trip 23", "Poland", STR_TO_DATE('22-01-2021', '%d-%m-%Y'), STR_TO_DATE('27-02-2021', '%d-%m-%Y'), "Bacau");
+
+insert into tripDB.trip (idtrip, tripName, destination, startDate, endDate, startingPoint)
+values (3, "Trip Paris", "Paris", STR_TO_DATE('22-05-2021', '%d-%m-%Y'), STR_TO_DATE('27-05-2021', '%d-%m-%Y'), "Iasi");
+
+insert into tripDB.trip (idtrip, tripName, destination, startDate, endDate, startingPoint)
+values (4, "Trip Cairo", "Cairo", STR_TO_DATE('1-01-2021', '%d-%m-%Y'), STR_TO_DATE('1-02-2021', '%d-%m-%Y'), "Iasi");
+
+insert into tripDB.tripparticipants(tripId,userId) values (1,1);
+insert into tripDB.tripparticipants(tripId,userId) values (1,107);
+insert into tripDB.tripparticipants(tripId,userId) values (1,103);

@@ -1,0 +1,38 @@
+---USER table
+CREATE TABLE `tripDB`.`user` (
+  `iduser` INT NOT NULL,
+  `user_name` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`iduser`),
+  UNIQUE INDEX `iduser_UNIQUE` (`iduser` ASC) VISIBLE,
+  UNIQUE INDEX `name_UNIQUE` (`user_name` ASC) VISIBLE);
+
+--- TRIP table
+CREATE TABLE `tripDB`.`trip` (
+  `idtrip` INT NOT NULL,
+  `tripName` VARCHAR(45) NOT NULL,
+  `startingPoint` VARCHAR(45) NOT NULL,
+  `destination` VARCHAR(45) NOT NULL,
+  `startDate` DATE NOT NULL,
+  `endDate` DATE NOT NULL,
+  UNIQUE INDEX `idtrip_UNIQUE` (`idtrip` ASC) VISIBLE,
+  PRIMARY KEY (`idtrip`);
+
+---TRIPPARTICIPANTS table
+CREATE TABLE `tripDB`.`tripparticipants` (
+  `tripId` INT NOT NULL,
+  `userId` INT NOT NULL,
+  PRIMARY KEY (`tripId`, `userId`),
+  INDEX `userID_idx` (`userId` ASC) VISIBLE,
+  CONSTRAINT `a`
+    FOREIGN KEY (`tripId`)
+    REFERENCES `tripDB`.`trip` (`idtrip`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `b`
+    FOREIGN KEY (`userId`)
+    REFERENCES `tripDB`.`user` (`iduser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
