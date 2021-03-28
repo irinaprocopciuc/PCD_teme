@@ -196,7 +196,7 @@ public class TripController {
 	}
 
 	@DeleteMapping(value = "/trips")
-	public ResponseEntity<String> deteleTrip() throws JsonProcessingException {
+	public ResponseEntity<String> deteleTrips() throws JsonProcessingException {
 		Map<String, Object> map = new HashMap<>();
 		Boolean tripDeleteResponse = tripService.deleteAllTrips();
 		if (tripDeleteResponse == true) {
