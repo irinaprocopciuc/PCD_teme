@@ -45,10 +45,10 @@ public class ErrorController {
 	protected ResponseEntity<Object> requestHandlingNoHandlerFound(RuntimeException ex, WebRequest request) throws JsonProcessingException{
 		String bodyOfResponse = "Path not found";
 		Map<String, Object> map = new HashMap<>();
-		map.put("status", HttpStatus.BAD_REQUEST);
+		map.put("status", HttpStatus.NOT_FOUND);
 		map.put("code", "404");
 		map.put("message", bodyOfResponse);
 		return new ResponseEntity<>(new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(map),
-				new HttpHeaders(), HttpStatus.BAD_REQUEST);
+				new HttpHeaders(), HttpStatus.NOT_FOUND);
 	}
 }
