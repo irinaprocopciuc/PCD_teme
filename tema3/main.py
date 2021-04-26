@@ -2,7 +2,7 @@ from google.cloud import storage
 from flask import Flask, request, render_template, Response, make_response
 import logging
 import os
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/iprocopc/OneDrive - Centric/Desktop/fac/Master-anul 2/SEM 2/PCD/serviceKey3.json"
+#os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/iprocopc/OneDrive - Centric/Desktop/fac/Master-anul 2/SEM 2/PCD/serviceKey3.json"
 
 app = Flask(__name__)
 
