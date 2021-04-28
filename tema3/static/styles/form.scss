@@ -40,10 +40,10 @@ form {
   
   .file-name {
     position: absolute;
-    bottom: -35px;
+    bottom: -45px;
     left: 10px;
     font-size: 0.85rem;
-    color: #555;
+    color: rgb(117, 107, 112);
   }
   
   input:hover + label,
@@ -59,4 +59,5 @@ form {
     border: none;
     color: grey;
     font-weight: bold;
+    cursor: pointer;
 }
